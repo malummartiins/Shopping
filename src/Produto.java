@@ -37,13 +37,12 @@ public class Produto {
 
 
     // método estaVencido que recebe uma data por parameto (objeto do tipo data ) e retorna vdd ou falso
-    public boolean estaVencido(Data getDataDeValiade){
+    /*public boolean estaVencido(Data getDataDeValiade){
       if (getDataDeValidade()  ){
         return true;
       } else {
         return false;
-      }
-
+      }*/
         /* EXEMPLO DA PROFESSORA 
         if (dataAtual.getAno() > dataDeValidade.getAno()) {
             return true;
@@ -55,7 +54,6 @@ public class Produto {
             return false;
         }*/
 
-    }
 
 
     // add método toString
