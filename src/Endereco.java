@@ -76,8 +76,8 @@ public class Endereco {
 // criar tostring 
     @Override
     public String toString() {
-        return "Endereco [nomeDaRua=" + nomeDaRua + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais
-                + ", cep=" + cep + ", numero=" + numero + ", complemento=" + complemento + "]";
+        return "Endereco Nome da Rua: " + nomeDaRua + ", Cidade: " + cidade + ", Estado: " + estado + ", País: " + pais
+                + ", CEP: " + cep + ", Número: " + numero + ", Complemento: " + complemento;
     }
 
     
