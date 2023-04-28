@@ -49,7 +49,7 @@ public class Data {
 
     @Override
     public String toString() {
-        return "Data [dia=" + dia + ", mes=" + mes + ", ano=" + ano + "]";
+        return dia + "/" + mes + "/" + ano;
     }
 
     public boolean verificaAnoBissexto(){

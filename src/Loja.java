@@ -2,20 +2,26 @@ public class Loja {
     private String nome;
     private int quantidadedeFuncionarios;
     private double salarioBaseFuncionario;
+    private Endereco endereco;
+    private Data dataDeFundacao;
     
      //criar dois contrutores um recebe parametros e outro apenas valores (-1 no salario base)
 
 
-    public Loja(String nome, int quantidadedeFuncionarios, double salarioBaseFuncionario) {
+    public Loja(String nome, int quantidadedeFuncionarios, double salarioBaseFuncionario,Endereco endereco, Data dataDeFundacao) {
         this.nome = nome;
         this.quantidadedeFuncionarios = quantidadedeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataDeFundacao = dataDeFundacao;
+        
     }
     // criar segundo construtor 
     public Loja (){
         this.nome = nome;
         this.quantidadedeFuncionarios = quantidadedeFuncionarios;
         this.salarioBaseFuncionario = -1;
+        // tenho que add endereco  e data de fundação aqui tbm?
     }
 
     
@@ -36,6 +42,21 @@ public class Loja {
     }
     public void setSalarioBaseFuncionario(double salarioBaseFuncionario) {
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+    }
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Data getDataDeFundacao() {
+        return dataDeFundacao;
+    }
+
+    public void setDataDeFundacao(Data dataDeFundacao) {
+        this.dataDeFundacao = dataDeFundacao;
     }
    
 
