@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class Produto {
     private String nome;
     private double preco;
@@ -36,30 +38,30 @@ public class Produto {
     }
 
 
-    // método estaVencido que recebe uma data por parameto (objeto do tipo data ) e retorna vdd ou falso
-    /*public boolean estaVencido(Data getDataDeValiade){
-      if (getDataDeValidade()  ){
-        return true;
-      } else {
-        return false;
-      }*/
-        /* EXEMPLO DA PROFESSORA 
-        if (dataAtual.getAno() > dataDeValidade.getAno()) {
-            return true;
-        } else if (dataAtual.getAno() == dataDeValidade.getAno() && dataAtual.getMes() > dataDeValidade.getMes()) {
-            return true;
-        } else if (dataAtual.getAno() == dataDeValidade.getAno() && dataAtual.getMes() == dataDeValidade.getMes() && dataAtual.getDia() > dataDeValidade.getDia()) {
-            return true;
-        } else {
-            return false;
-        }*/
+    public boolean estaVencido(Data dataValidade) {
+        LocalDateTime dataAtual = LocalDateTime.now();
 
+        boolean anoMaior = dataValidade.getAno() > dataAtual.getYear();
+        if (anoMaior) {
+            return true;
+        }
 
+        boolean mesmoAno = dataValidade.getAno() == dataAtual.getYear();
+        boolean mesmoAnoMesMaior = mesmoAno && dataValidade.getMes() > dataAtual.getMonth().getValue();
+        if (mesmoAnoMesMaior) {
+            return true;
+        }
 
-    // add método toString
+        boolean mesmoMes = dataValidade.getMes() == dataAtual.getMonth().getValue();
+        return mesmoMes && dataValidade.getDia() > dataAtual.getDayOfMonth();
+    }
+
+    public boolean isVencido() {
+        return this.estaVencido(getDataDeValidade());
+    }
     @Override
     public String toString() {
-        return "Produto: nome=" + nome + ", preço=" + preco  + "data de validade= " + dataDeValidade;
+        return "Produto: nome =" + nome + ", preço =" + preco  + "data de validade = " + dataDeValidade;
     }
 
     
