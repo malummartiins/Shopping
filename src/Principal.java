@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Produto produto = new Produto(null, 0, null);
-        Loja loja = new Loja();
+        Loja loja = new Loja(null, 0, 0, null, null);
 
         System.out.println("""
                 (1) criar uma loja
