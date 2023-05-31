@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import static java.util.Objects.isNull;
+
 public class Loja {
     private String nome;
     private int quantidadedeFuncionarios;
@@ -5,25 +8,70 @@ public class Loja {
     private Endereco endereco;
     private Data dataDeFundacao;
     
-     //criar dois contrutores um recebe parametros e outro apenas valores (-1 no salario base)
+    private Produto[] estoqueProdutos;
 
 
-    public Loja(String nome, int quantidadedeFuncionarios, double salarioBaseFuncionario,Endereco endereco, Data dataDeFundacao) {
+    public Loja(String nome, int quantidadedeFuncionarios, double salarioBaseFuncionario,Data dataDeFundacao, Endereco endereco, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadedeFuncionarios = quantidadedeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataDeFundacao = dataDeFundacao;
+        this.estoqueProdutos = new Produto[quantidadeMaximaProdutos];
         
     }
     // criar segundo construtor 
-    public Loja (){
+    public Loja (String nome2, int quantidadeFuncionarios, double salarioBaseFuncionario2, Endereco endereco2, Data dataFundacao, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadedeFuncionarios = quantidadedeFuncionarios;
         this.salarioBaseFuncionario = -1;
-        // tenho que add endereco  e data de fundação aqui tbm?
+        
+    }
+    protected Loja() {
     }
 
+    public Loja(String nome2, int quantidadeFuncionarios, double salarioBaseFuncionario2, Data dataFundacao,
+			Endereco endereco2) {
+	}
+	public void imprimeProdutos() {
+
+        for (Produto produto : this.estoqueProdutos) {
+
+            if (isNull(produto)) {
+                continue;
+            }
+
+            System.out.println(produto);
+        }
+    }
+
+    public boolean insereProduto(Produto produto) {
+        for (int i = 0; i < this.estoqueProdutos.length; i++) {
+            if (isNull(this.estoqueProdutos[i])) {
+                this.estoqueProdutos[i] = produto;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean removeProduto(String nome) {
+        if (this.estoqueProdutos.length == 0) {
+            return false;
+        }
+
+        boolean contemProduto = Arrays.stream(this.estoqueProdutos).anyMatch(loja -> !isNull(loja) && loja.getNome().equals(nome));
+        if (!contemProduto) {
+            return false;
+        }
+
+        this.estoqueProdutos = Arrays.stream(this.estoqueProdutos)
+                .filter(produto -> !isNull(produto) && !produto.getNome().equals(nome))
+                .toArray(Produto[]::new);
+
+        return true;
+    }
     
     public String getNome() {
         return nome;
@@ -59,13 +107,13 @@ public class Loja {
         this.dataDeFundacao = dataDeFundacao;
     }
    
+    public Produto[] getEstoqueProdutos() {
+        return estoqueProdutos;
+    }
 
-//  toString
-   @Override
-public String toString() {
-    return "Loja Nome: " + nome + ", Quantidade de Funcionários: " + quantidadedeFuncionarios + ", Salário base dos funcionários: "
-            + salarioBaseFuncionario + "Endereço: "+ endereco + "Data de Fundação: " + dataDeFundacao;
-}
+    public void setEstoqueProdutos(Produto[] estoqueProdutos) {
+        this.estoqueProdutos = estoqueProdutos;
+    }
 
 public double gastosComSalario(){
     if (salarioBaseFuncionario == -1){
@@ -84,6 +132,19 @@ public String tamanhoDaLoja(){
     return "G";
    }
    }
+
+@Override
+    public String toString() {
+        return "Loja {" +
+                "Nome = '" + nome + '\'' +
+                ", Quantidade de Funcionarios = " + quantidadedeFuncionarios +
+                ", Salario Base Funcionario = " + salarioBaseFuncionario +
+                ", Data de Fundacao = " + dataDeFundacao +
+                ", Endereço = " + endereco +
+                ", Estoque de Produtos = " + this.estoqueProdutos +
+                '}';
+    }
+
 }
     
 

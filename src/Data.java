@@ -67,4 +67,10 @@ public class Data {
         this.mes = 1;
         this.ano = 2000;
 }
+
+
+
+    public int getDia() {
+        return dia;
+    }
 }

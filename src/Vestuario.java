@@ -1,9 +1,7 @@
 public class Vestuario extends Loja {
     private boolean produtosImportados;
 
-    /* atributos que loja já tem, atributo importado true or false pra saber se é 
-     * criar construtor, criar get e set, sobrescrever toString
-     */
+    
 
      public Vestuario(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, boolean produtosImportados, int quantidadeMaximaProdutos) {
         super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
@@ -25,7 +23,8 @@ public class Vestuario extends Loja {
 
     @Override
     public String toString() {
-        return "Vestuario produtos importados= " + produtosImportados;
+        return super.toString() + "Vestuario produtos importados= " + produtosImportados;
     }
+
     
 }

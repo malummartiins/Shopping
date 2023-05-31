@@ -1,9 +1,6 @@
 public class Cosmetico extends Loja {
     private double taxaComercializacao;
 
-
-    /* atributos da loja 
-    criar construtor criar get e set sobrescreter toString*/
     public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, double taxaComercializacao) {
         super(nome, quantidadeFuncionarios, salarioBaseFuncionario, dataFundacao, endereco);
         this.taxaComercializacao = taxaComercializacao;
