@@ -20,7 +20,7 @@ public void setDataAlvara(Data dataAlvara) {
 }
 @Override
 public String toString() {
-    return "Alimentação, data do Alvará =" + dataAlvara ;
+    return "Alimentação, data do Alvará = " + dataAlvara ;
 }
 
 }

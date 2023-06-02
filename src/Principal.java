@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Principal {
     public static void main(String[] args) {
         Produto produto = new Produto(null, 0, null);
@@ -6,7 +7,7 @@ public class Principal {
 
         System.out.println("""
                 (1) criar uma loja
-                (2) criar um produto
+                (2) criar um produto1
                 (3) sair""");
 
                 Scanner scanner = new Scanner(System.in);
@@ -39,22 +40,22 @@ public class Principal {
             }
             public static Loja novaLoja() {
                 Scanner scannerLoja = new Scanner(System.in);
-                System.out.println("Digite o nome da loja");
+                System.out.println("Digite o nome da loja: ");
                 String nome = scannerLoja.nextLine();
-                System.out.println("Digite a quantidade de funcionarios");
+                System.out.println("Digite a quantidade de funcionarios: ");
                 int quantidadeFuncionarios = scannerLoja.nextInt();
-                System.out.println("Digite o salario base");
+                System.out.println("Digite o salario base: ");
                 double salarioBaseFuncionario = scannerLoja.nextDouble();
-                Data dataFundacao = novaData("Digite a data de fundação da sua loja");
-                Endereco endereco = novoEndereco("Digite as informações referente ao seu endereço");
+                Data dataFundacao = novaData("Digite a data de fundação da sua loja: ");
+                Endereco endereco = novoEndereco("Digite as informações referente ao seu endereço: ");
         
                 return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, dataFundacao, endereco);
             }
             public static Produto novoProduto() {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Digite o nome da loja");
+                System.out.println("Digite o nome do produto: ");
                 String nome = scanner.nextLine();
-                System.out.println("Digite o preço do produto");
+                System.out.println("Digite o preço do produto: ");
                 double preco = scanner.nextDouble();
         
                 return new Produto(nome, preco, novaData("digite a data de validade"));
@@ -64,25 +65,25 @@ public class Principal {
                 Scanner scannerEndereco = new Scanner(System.in);
                 System.out.println(mensagem);
         
-                System.out.println("Digite o nome da sua rua");
+                System.out.println("Dados endereço, rua: ");
                 String nomeDaRua = scannerEndereco.nextLine();
         
-                System.out.println("Digite o numero do seu endereço:");
+                System.out.println("Número:");
                 String numero = scannerEndereco.nextLine();
         
-                System.out.println("Digite o nome da sua cidade:");
+                System.out.println("Cidade:");
                 String nomeDaCidade = scannerEndereco.nextLine();
         
-                System.out.println("Digite o nome do seu país:");
+                System.out.println("País:");
                 String pais = scannerEndereco.nextLine();
         
-                System.out.println("Digite o nome do seu estado:");
+                System.out.println("Estado:");
                 String estado = scannerEndereco.nextLine();
         
-                System.out.println("Digite o numero do seu cep:");
+                System.out.println("CEP:");
                 String cep = scannerEndereco.nextLine();
         
-                System.out.println("Digite o complemento do seu endereço:");
+                System.out.println("Complemento:");
                 String complemento = scannerEndereco.nextLine();
         
                 return new Endereco(nomeDaRua, nomeDaCidade, estado, pais, cep, numero, complemento);
