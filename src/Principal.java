@@ -1,13 +1,14 @@
 import java.util.Scanner;
+import static java.lang.System.in;
 
 public class Principal {
     public static void main(String[] args) {
-        Produto produto = new Produto(null, 0, null);
-        Loja loja = new Loja(null, 0, 0, null, null);
-
+        Produto produto = new Produto();
+        Loja loja = new Loja();
+        
         System.out.println("""
                 (1) criar uma loja
-                (2) criar um produto1
+                (2) criar um produto
                 (3) sair""");
 
                 Scanner scanner = new Scanner(System.in);

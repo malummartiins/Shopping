@@ -20,7 +20,7 @@ public class Loja {
         this.estoqueProdutos = new Produto[quantidadeMaximaProdutos];
         
     }
-    // criar segundo construtor 
+    
     public Loja (String nome2, int quantidadeFuncionarios, double salarioBaseFuncionario2, Endereco endereco2, Data dataFundacao, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadedeFuncionarios = quantidadedeFuncionarios;
@@ -33,46 +33,9 @@ public class Loja {
     public Loja(String nome2, int quantidadeFuncionarios, double salarioBaseFuncionario2, Data dataFundacao,
 			Endereco endereco2) {
 	}
-	public void imprimeProdutos() {
-
-        for (Produto produto : this.estoqueProdutos) {
-
-            if (isNull(produto)) {
-                continue;
-            }
-
-            System.out.println(produto);
-        }
+	public Loja(String string, int i, Endereco e1, Data d1, int j) {
     }
 
-    public boolean insereProduto(Produto produto) {
-        for (int i = 0; i < this.estoqueProdutos.length; i++) {
-            if (isNull(this.estoqueProdutos[i])) {
-                this.estoqueProdutos[i] = produto;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean removeProduto(String nome) {
-        if (this.estoqueProdutos.length == 0) {
-            return false;
-        }
-
-        boolean contemProduto = Arrays.stream(this.estoqueProdutos).anyMatch(loja -> !isNull(loja) && loja.getNome().equals(nome));
-        if (!contemProduto) {
-            return false;
-        }
-
-        this.estoqueProdutos = Arrays.stream(this.estoqueProdutos)
-                .filter(produto -> !isNull(produto) && !produto.getNome().equals(nome))
-                .toArray(Produto[]::new);
-
-        return true;
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -132,6 +95,46 @@ public String tamanhoDaLoja(){
     return "G";
    }
    }
+   
+   public void imprimeProdutos() {
+
+    for (Produto produto : this.estoqueProdutos) {
+
+        if (isNull(produto)) {
+            continue;
+        }
+
+        System.out.println(produto);
+    }
+}
+
+public boolean insereProduto(Produto produto) {
+    for (int i = 0; i < estoqueProdutos.length; i++) {
+        if (estoqueProdutos[i] == null) {
+            estoqueProdutos[i] = produto;
+            return true;
+        }
+    }
+    return false;
+}
+
+public boolean removeProduto(String nome) {
+    if (this.estoqueProdutos.length == 0) {
+        return false;
+    }
+
+    boolean contemProduto = Arrays.stream(this.estoqueProdutos).anyMatch(loja -> !isNull(loja) && loja.getNome().equals(nome));
+    if (!contemProduto) {
+        return false;
+    }
+
+    this.estoqueProdutos = Arrays.stream(this.estoqueProdutos)
+            .filter(produto -> !isNull(produto) && !produto.getNome().equals(nome))
+            .toArray(Produto[]::new);
+
+    return true;
+}
+
 
 @Override
     public String toString() {
@@ -141,7 +144,7 @@ public String tamanhoDaLoja(){
                 ", Salario Base Funcionario = " + salarioBaseFuncionario +
                 ", Data de Fundacao = " + dataDeFundacao +
                 ", Endereço = " + endereco +
-                ", Estoque de Produtos = " + this.estoqueProdutos +
+                ", Estoque de Produtos = " + estoqueProdutos +
                 '}';
     }
 

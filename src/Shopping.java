@@ -72,7 +72,7 @@ private int contaLojas(List<Loja> lojas, Class<? extends Loja> tipoClasse) {
             .toList().size();
 }
 
-public Informatica lojaSeguroMaisCaro() { // faculdade que crime
+public Informatica lojaSeguroMaisCaro() { 
     Informatica acumulador = null;
 
     for (Loja _loja : this.lojas) {

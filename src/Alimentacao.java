@@ -11,6 +11,10 @@ public Alimentacao(String nome, int quantidadeFuncionarios, double salarioBaseFu
     this.dataAlvara = dataAlvara;
 }
 
+public Alimentacao(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario, Endereco e1, Data d1, Data d12,
+        int i) {
+}
+
 public Data getDataAlvara() {
     return dataAlvara;
 }
