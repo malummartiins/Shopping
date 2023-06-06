@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import static java.lang.System.in;
 
 public class Principal {
     public static void main(String[] args) {
@@ -7,9 +6,11 @@ public class Principal {
         Loja loja = new Loja();
         
         System.out.println("""
-                (1) criar uma loja
+                \u001b[1m\u001b[30m\u001b[43m(1) criar uma loja
+
                 (2) criar um produto
-                (3) sair""");
+
+                (3) sair\u001b[m""");
 
                 Scanner scanner = new Scanner(System.in);
 
@@ -38,6 +39,7 @@ public class Principal {
                 }
         
                 System.out.println(loja);
+                scanner.close();
             }
             public static Loja novaLoja() {
                 Scanner scannerLoja = new Scanner(System.in);
@@ -47,10 +49,12 @@ public class Principal {
                 int quantidadeFuncionarios = scannerLoja.nextInt();
                 System.out.println("Digite o salario base: ");
                 double salarioBaseFuncionario = scannerLoja.nextDouble();
+                scannerLoja.close();
                 Data dataFundacao = novaData("Digite a data de fundação da sua loja: ");
                 Endereco endereco = novoEndereco("Digite as informações referente ao seu endereço: ");
         
                 return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, dataFundacao, endereco);
+                
             }
             public static Produto novoProduto() {
                 Scanner scanner = new Scanner(System.in);
@@ -58,8 +62,9 @@ public class Principal {
                 String nome = scanner.nextLine();
                 System.out.println("Digite o preço do produto: ");
                 double preco = scanner.nextDouble();
-        
+                scanner.close();
                 return new Produto(nome, preco, novaData("digite a data de validade"));
+                
             }
         
             private static Endereco novoEndereco(String mensagem) {
@@ -86,6 +91,7 @@ public class Principal {
         
                 System.out.println("Complemento:");
                 String complemento = scannerEndereco.nextLine();
+                scannerEndereco.close();
         
                 return new Endereco(nomeDaRua, nomeDaCidade, estado, pais, cep, numero, complemento);
             }
@@ -99,8 +105,11 @@ public class Principal {
                 int mes = scannerData.nextInt();
                 System.out.println("Digite o ano:");
                 int ano = scannerData.nextInt();
+                scannerData.close();
         
                 return new Data(dia, mes, ano);
+               
             }
+        
         }
 

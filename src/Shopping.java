@@ -34,30 +34,57 @@ public boolean insereLoja(Loja loja) {
     return false;
 }
 
-public boolean removeLoja(String nome) {
-    for (Loja loja : this.lojas) {
-        if (loja.getNome().equals(nome)) {
-            this.lojas = removeElement(this.lojas, loja);
-            return true;
+public boolean removeLoja(String nomeLoja) {
+    for (int i = 0; i < lojas.length; i++) {
+        Loja loja = lojas[i];
+        if (loja != null && loja.getNome().equalsIgnoreCase(nomeLoja)) {
+            lojas[i] = null;
+            return true; 
         }
     }
-
-    return false;
+    return false; 
 }
 
-public int quantidadeLojasPorTipo(String tipo) {
-    List<Loja> _lojas = Arrays.stream(this.lojas).toList();
 
-    return switch (tipo) {
-        case "Informática" -> contaLojas(_lojas, Informatica.class);
-        case "Alimentação" -> contaLojas(_lojas, Alimentacao.class);
-        case "Bijuteria" -> contaLojas(_lojas, Bijuteria.class);
-        case "Vestuário" -> contaLojas(_lojas, Vestuario.class);
-        case "Cosmético" -> contaLojas(_lojas, Cosmetico.class);
-        default -> -1;
-    };
+public int quantidadeLojasPorTipo(String tipoLoja) {
+    int quantidade = 0;
+
+    if (tipoLoja.equalsIgnoreCase("Cosmético")) {
+        for (Loja loja : lojas) {
+            if (loja instanceof Cosmetico) {
+                quantidade++;
+            }
+        }
+    } else if (tipoLoja.equalsIgnoreCase("Vestuário")) {
+        for (Loja loja : lojas) {
+            if (loja instanceof Vestuario) {
+                quantidade++;
+            }
+        }
+    } else if (tipoLoja.equalsIgnoreCase("Bijuteria")) {
+        for (Loja loja : lojas) {
+            if (loja instanceof Bijuteria) {
+                quantidade++;
+            }
+        }
+    } else if (tipoLoja.equalsIgnoreCase("Alimentação")) {
+        for (Loja loja : lojas) {
+            if (loja instanceof Alimentacao) {
+                quantidade++;
+            }
+        }
+    } else if (tipoLoja.equalsIgnoreCase("Informática")) {
+        for (Loja loja : lojas) {
+            if (loja instanceof Informatica) {
+                quantidade++;
+            }
+        }
+    } else {
+        return -1; // Tipo de loja inválido
+    }
+
+    return quantidade;
 }
-
 public Loja[] getLojas() {
     return lojas;
 }
