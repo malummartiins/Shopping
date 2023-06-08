@@ -1,48 +1,51 @@
 import java.util.Scanner;
 
-import javax.xml.transform.Source;
-
 public class Principal {
     public static void main(String[] args) {
-        Produto produto = new Produto();
-        Loja loja = new Loja();
-        
-        System.out.println("""
-                \u001b[1m\u001b[30m\u001b[43m(1) criar uma loja
+        int menu = 0;
+        Loja loja = null;
+        Produto produto = null;
 
-                (2) criar um produto
 
-                (3) sair\u001b[m""");
+        Scanner scannerMenu = new Scanner (System.in);
+        while (menu != 3) {
+            System.out.println("\u001b[1m\u001b[30m\u001b[43m(1) Criar uma loja\u001b[m");
+            System.out.println("\u001b[1m\u001b[30m\u001b[43m(2) Criar um produto\u001b[m");
+            System.out.println("\u001b[1m\u001b[30m\u001b[43m(3) Sair\u001b[m");
+            
+	        System.out.print("\u001b[1m\u001b[30m\u001b[43mDigite a opção desejada:\u001b[m ");
+            int Menu = scannerMenu.nextInt();
+	
 
-                Scanner scanner = new Scanner(System.in);
+switch (Menu) {
+                case 1:
+                    loja = novaLoja();
+                    System.out.println("Loja criada com sucesso: " + loja);
+                    System.out.println(loja.toString());
+                    break;
+                case 2:
+                    produto = novoProduto();
+                    System.out.println("Produto criado com sucesso: " + produto);
+                    System.out.println(produto.toString());
 
-                int selectedOption = scanner.nextInt();
-                boolean isInvalidOption = true;
-        
-                while (isInvalidOption) {
-                    if (selectedOption == 1) {
-                        loja = novaLoja();
-                        isInvalidOption = false;
-                    } else if (selectedOption == 2) {
-                        produto = novoProduto();
-                        isInvalidOption = false;
-                    } else if (selectedOption == 3) {
-                        System.out.println("Sair");
-                        isInvalidOption = false;
+                    Data dataReferencia = new Data(20, 10, 2023);
+                    if (produto.estaVencido(dataReferencia)) {
+                        System.out.println("PRODUTO VENCIDO");
+                    } else {
+                        System.out.println("PRODUTO NÃO VENCIDO");
                     }
-        
-                    if (isInvalidOption) {
-                        System.out.println("Opção inválida, tente novamente");
-                    }
-                }
-        
-                if (produto.estaVencido(new Data(20, 10, 2023))) {
-                    System.out.println("Produto vencido");
-                }
-        
-                System.out.println(loja);
-                scanner.close();
+                    break;
+                case 3:
+                    System.out.println("Encerrando o programa...");
+                    break;
+                //default:
+                 //   System.out.println("Opção inválida");
+                 //   break;
             }
+        }
+
+    }
+
             public static Loja novaLoja() {
                 Scanner scannerLoja = new Scanner(System.in);
                 System.out.println("Digite o nome da loja: ");

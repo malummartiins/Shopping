@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import static java.util.Objects.isNull;
 
 public class Loja {
     private String nome;
