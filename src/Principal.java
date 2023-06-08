@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.xml.transform.Source;
+
 public class Principal {
     public static void main(String[] args) {
         Produto produto = new Produto();
@@ -49,11 +51,13 @@ public class Principal {
                 int quantidadeFuncionarios = scannerLoja.nextInt();
                 System.out.println("Digite o salario base: ");
                 double salarioBaseFuncionario = scannerLoja.nextDouble();
+                System.out.println("Digite a quantidade de produtos:");
+                int quantMaxProdutos = scannerLoja.nextInt();
                 scannerLoja.close();
                 Data dataFundacao = novaData("Digite a data de fundação da sua loja: ");
                 Endereco endereco = novoEndereco("Digite as informações referente ao seu endereço: ");
-        
-                return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, dataFundacao, endereco);
+                
+                return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, dataFundacao, endereco, quantMaxProdutos);
                 
             }
             public static Produto novoProduto() {

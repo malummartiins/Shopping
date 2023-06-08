@@ -3,13 +3,13 @@ import java.time.LocalDateTime;
 public class Produto {
     private String nome;
     private double preco;
-    private Data dataDeValidade;
+    private Data dataValidade;
     
 
-    public Produto(String nome, double preco, Data dataDeValidade) {
+    public Produto(String nome, double preco, Data dataValidade) {
         this.nome = nome;
         this.preco = preco;
-        this.dataDeValidade = dataDeValidade;
+        this.dataValidade = dataValidade;
 
     }
 
@@ -32,12 +32,12 @@ public class Produto {
         this.preco = preco;
     }
     
-    public Data getDataDeValidade() {
-        return dataDeValidade;
+    public Data getDataValidade() {
+        return dataValidade;
     }
 
-    public void setDataDeValidade(Data dataDeValidade) {
-        this.dataDeValidade = dataDeValidade;
+    public void setDataValidade(Data dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
 
@@ -60,11 +60,11 @@ public class Produto {
     }
 
     public boolean isVencido() {
-        return this.estaVencido(getDataDeValidade());
+        return this.estaVencido(getDataValidade());
     }
     @Override
     public String toString() {
-        return "Produto: nome =" + nome + ", preço =" + preco  + "data de validade = " + dataDeValidade;
+        return "Produto: nome =" + nome + ", preço =" + preco  + "data de validade = " + dataValidade;
     }
 
     

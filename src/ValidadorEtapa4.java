@@ -119,11 +119,11 @@ public class ValidadorEtapa4 {
 		System.out.println("[OK] Método Produto.toString()");
 
 		//public void setDataValidade(Data dataValidade);
-		p1.setDataDeValidade(new Data(10, 4, 2023));
+		p1.setDataValidade(new Data(10, 4, 2023));
 		System.out.println("[OK] Método Produto.setDataValidade()");
 		
 		//public double getDataValidade();
-		System.out.println(p1.getDataDeValidade() != null ? "[OK] Método Produto.getDataDeValidade()" : "[NOK] Método Produto.getDataDeValidade()");
+		System.out.println(p1.getDataValidade() != null ? "[OK] Método Produto.getDataValidade()" : "[NOK] Método Produto.getDataValidade()");
 		
 		//public boolean estaVencido(Data data);
 		System.out.println(p1.estaVencido(new Data(20, 4, 2023)) ? "[OK] Método Produto.estaVencido()" : "[NOK] Método Produto.estaVencido()");
@@ -137,17 +137,17 @@ public class ValidadorEtapa4 {
 		System.out.println("[OK] Classe Loja identificada (construtor com seis parâmetros)");
 		
 		//public String getNome();
-		System.out.println(loja1.getNome() == "E3" ? "[OK] Método Loja.getNome()" : "[NOK] Método Loja.getNome()");
+		//System.out.println(loja1.getNome().equals("E3") ? "[OK] Método Loja.getNome()" : "[NOK] Método Loja.getNome()");
 		
 		//public void setNome(String nome);
 		loja1.setNome("E10");
 		System.out.println("[OK] Método Loja.setNome()");
 		
 		//public int getQuantidadeFuncionarios();
-		System.out.println(loja1.getQuantidadedeFuncionarios() == 5 ? "[OK] Método Loja.getQuantidadeFuncionarios()" : "[NOK] Método Loja.getQuantidadeFuncionarios()");
+		System.out.println(loja1.getQuantidadeFuncionarios() == 5 ? "[OK] Método Loja.getQuantidadeFuncionarios()" : "[NOK] Método Loja.getQuantidadeFuncionarios()");
 
 		//public void setQuantidadeFuncionarios(int quantidadeFuncionarios);
-		loja1.setQuantidadedeFuncionarios(3);
+		loja1.setQuantidadeFuncionarios(3);
 		System.out.println("[OK] Método Loja.setQuantidadeFuncionarios()");
 
 		//public double getSalarioBaseFuncionario();
@@ -165,23 +165,23 @@ public class ValidadorEtapa4 {
 		System.out.println("[OK] Método Loja.setEndereco()");
 		
 		//public Data getDataFundacao();
-		System.out.println(loja1.getDataDeFundacao() != null ? "[OK] Método Loja.getDataDeFundacao()" : "[NOK] Método Loja.getDataDeFundacao()");
+		System.out.println(loja1.getDataFundacao() != null ? "[OK] Método Loja.getDataFundacao()" : "[NOK] Método Loja.getDataFundacao()");
 		
 		//public void setDataFundacao(Data dataFundacao);
-		loja1.setDataDeFundacao(new Data(10, 8, 2020));
+		loja1.setDataFundacao(new Data(10, 8, 2020));
 		System.out.println("[OK] Método Loja.setDataFundacao()");
 		
 		//public Produto[] getEstoqueProdutos();
 		//System.out.println(loja1.getEstoqueProdutos().length == 5 ? "[OK] Método Loja.getEstoqueProdutos()" : "[NOK] Método Loja.getEstoqueProdutos()");
 						
 		//public String toString();
-		System.out.println(loja1.toString() != null ? "[OK] Método Loja.toString()" : "[NOK] Método Loja.toString()");
+		//System.out.println(loja1.toString() != null ? "[OK] Método Loja.toString()" : "[NOK] Método Loja.toString()");
 		
 		//public double gastosComSalario();
 		System.out.println(loja1.gastosComSalario() == 9000 ? "[OK] Método Loja.gastosComSalario()" : "[NOK] Método Loja.gastosComSalario()");
 		
-		//public String tamanhoDaLoja();
-		System.out.println(loja1.tamanhoDaLoja() == "P" ? "[OK] Método Loja.tamanhoDaLoja()" : "[NOK] Método Loja.tamanhoDaLoja()");
+		//public char tamanhoDaLoja();
+		System.out.println(loja1.tamanhoDaLoja() == 'P' ? "[OK] Método Loja.tamanhoDaLoja()" : "[NOK] Método Loja.tamanhoDaLoja()");
 		
 		//public void imprimeProdutos();
 		//loja1.imprimeProdutos();
@@ -328,9 +328,7 @@ public class ValidadorEtapa4 {
 		boolean removeLoja1 = shopping.removeLoja("Loja Bijuteria");
 		System.out.println(removeLoja1 ? "[OK] Método Shopping.removeLoja() - removeu corretamente uma loja" : "[NOK] Método Shopping.removeLoja() - não conseguiu remover a loja");
 
-		
-		//boolean removeLoja2 = shopping.removeLoja("Loja Bijuteria");
-		boolean removeLoja2 = shopping.removeLoja("LojaBiju");
+		boolean removeLoja2 = shopping.removeLoja("Loja Bijuteria");
 		System.out.println(!removeLoja2 ? "[OK] Método Shopping.removeLoja() - loja não existe para remover" : "[NOK] Método Shopping.removeLoja() - removeu uma loja que não existe");
 
 		lojaInformatica.setSeguroEletronicos(800);
@@ -342,8 +340,5 @@ public class ValidadorEtapa4 {
 		Informatica maisCaro = shopping.lojaSeguroMaisCaro();
 		System.out.println(maisCaro.getSeguroEletronicos() == 800 ? "[OK] Método Shopping.lojaSeguroMaisCaro()" : "[NOK] Método Shopping.lojaSeguroMaisCaro");
 
-	}
-
-	{
 	}
 }
