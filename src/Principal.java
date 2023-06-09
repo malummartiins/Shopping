@@ -38,9 +38,9 @@ switch (Menu) {
                 case 3:
                     System.out.println("Encerrando o programa...");
                     break;
-                //default:
-                 //   System.out.println("Opção inválida");
-                 //   break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
             }
         }
 

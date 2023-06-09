@@ -175,7 +175,7 @@ public class ValidadorEtapa4 {
 		//System.out.println(loja1.getEstoqueProdutos().length == 5 ? "[OK] Método Loja.getEstoqueProdutos()" : "[NOK] Método Loja.getEstoqueProdutos()");
 						
 		//public String toString();
-		//System.out.println(loja1.toString() != null ? "[OK] Método Loja.toString()" : "[NOK] Método Loja.toString()");
+		System.out.println(loja1.toString() != null ? "[OK] Método Loja.toString()" : "[NOK] Método Loja.toString()");
 		
 		//public double gastosComSalario();
 		System.out.println(loja1.gastosComSalario() == 9000 ? "[OK] Método Loja.gastosComSalario()" : "[NOK] Método Loja.gastosComSalario()");

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Loja {
     private String nome;
@@ -17,6 +18,7 @@ public class Loja {
         this.dataFundacao = dataFundacao;
         this.estoqueProdutos = new Produto[quantMaxProdutos];
     }
+    
     
     public Loja (String nome, int quantidadeFuncionarios, double salarioBaseFuncionario2, Endereco endereco2, Data dataFundacao, int quantMaxProdutos) {
         this.nome = nome;
@@ -110,8 +112,8 @@ public void imprimeProdutos() {
 
 public boolean insereProduto(Produto produto) {
     for (int i = 0; i < estoqueProdutos.length; i++) {
-        if (estoqueProdutos[i] == produto) {
-            estoqueProdutos[i] = null;
+        if (estoqueProdutos[i] == null) {
+            estoqueProdutos[i] = produto;
             return true;
         }
     }
@@ -138,7 +140,7 @@ public String toString() {
             ", salarioBaseFuncionario=" + salarioBaseFuncionario +
             ", dataFundacao=" + dataFundacao +
             ", endereco=" + endereco +
-            ", estoqueProdutos=" + estoqueProdutos +
+            ", estoqueProdutos=" + Arrays.toString(estoqueProdutos) +
             '}';
 }
 }
